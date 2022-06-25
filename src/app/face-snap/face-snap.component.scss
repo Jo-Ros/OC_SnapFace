@@ -1,0 +1,13 @@
+.face-snap-card {
+    box-sizing: border-box;
+    padding: 10px 30px;
+    //height: 450px;
+    box-shadow: lightgray 4px 4px 20px;
+    transition: all .5s ease-in-out;
+
+    .desc {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+}
