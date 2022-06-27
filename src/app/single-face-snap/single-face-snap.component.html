@@ -1,11 +1,11 @@
-<div class="face-snap-card" [ngClass]="{ snapped: buttonText === 'Oops, unSnap!' }">
+<div class="face-snap-card" *ngIf="faceSnap$ | async as faceSnap" [ngClass]="{ snapped: buttonText === 'Oops, unSnap!' }">
     <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
     <div class="description-container">
         <h2>{{ faceSnap.title | titlecase }}</h2>
         <p> Mis à jour {{ faceSnap.createdDate | date: 'à HH:mm, le d MMMM yyyy' }}</p>
         <p>{{ faceSnap.description }}</p>
         <p>
-            <button (click)='onSnap()'>{{ buttonText }}</button>
+            <button (click)='onSnap(faceSnap.id)'>{{ buttonText }}</button>
             <span [ngStyle]="{ color: 'rgb(0, '+ faceSnap.snaps*50 +', 0)'}">{{ faceSnap.snaps }}</span>
         </p>
         <p *ngIf="faceSnap.location"> Photo prise à: {{ faceSnap.location }}</p>
